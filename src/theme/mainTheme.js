@@ -4,7 +4,8 @@ export const theme = {
     navyBlue: "#07142C",
     greyPrimary: "#1A2435",
     greySecondary: "#363F4E",
-    greyTertiary: "#A4AFC3"
+    greyTertiary: "#A4AFC3",
+    white: "#ffffff"
     // primary, secondary, tertiary, quaternary, quinary
   },
   fontWeight: {
@@ -20,6 +21,7 @@ export const theme = {
     s: "1.8rem", // button Paragraph InfoBox
     m: "2rem", // Header
     l: "2.4rem", // BigParagraph
-    xl: "3.0rem" //BigHeader
+    xl: "3.0rem", //BigHeader
+    xxl: "7.0rem"
   }
 };
