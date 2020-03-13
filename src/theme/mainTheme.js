@@ -22,6 +22,6 @@ export const theme = {
     m: "2rem", // Header
     l: "2.4rem", // BigParagraph
     xl: "3.0rem", //BigHeader
-    xxl: "7.0rem"
+    xxl: "4.0rem"
   }
 };
