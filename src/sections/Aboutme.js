@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import workingMan from "../assets/workingMan.png";
-import WhiteHeader from "../components/atoms/WhiteHeader";
+import H1 from "../components/atoms/H1";
 import H2 from "../components/atoms/H2";
 import Paragraph from "../components/atoms/Paragraph";
 
@@ -16,7 +16,7 @@ const BackgroundWrapper = styled.div`
 const MainWrapper = styled.div`
   /* height: 100vh; */
   width: 100%;
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
   position: relative;
   display: flex;
@@ -44,13 +44,9 @@ const StyledImg = styled.img`
 `;
 
 const StyledArticle = styled.article`
-  margin-top: 100px;
+  margin: 100px 0;
   margin-left: 100px;
   width: 40%;
-
-  h1 {
-    margin-bottom: 60px;
-  }
 `;
 
 const StyledH2 = styled(H2)`
@@ -60,6 +56,7 @@ const StyledH2 = styled(H2)`
 const StyledSection = styled.section`
   margin-bottom: 40px;
   position: relative;
+  max-width: 500px;
 `;
 
 const SectionBackground = styled.span`
@@ -88,9 +85,9 @@ const Aboutme = () => {
         <OrangeDiv />
 
         <StyledArticle>
-          <WhiteHeader>
+          <H1>
             <span>{"<"}</span> Poznajmy się <span>{"/>"}</span>
-          </WhiteHeader>
+          </H1>
 
           <StyledSection>
             <Paragraph>

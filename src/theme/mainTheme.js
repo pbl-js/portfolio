@@ -17,11 +17,11 @@ export const theme = {
   },
   fontSize: {
     xxs: "1rem",
-    xs: "1.4rem",
-    s: "1.8rem", // button Paragraph InfoBox
-    m: "2rem", // Header
-    l: "2.4rem", // BigParagraph
-    xl: "3.0rem", //BigHeader
+    xs: "1.4rem", // Paragraph
+    s: "1.8rem",
+    m: "2rem",
+    l: "2.4rem",
+    xl: "3.0rem",
     xxl: "4.0rem"
   }
 };
