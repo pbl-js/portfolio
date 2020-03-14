@@ -17,12 +17,12 @@ const OrangeDiv = styled.div`
   width: 200vw;
   height: 100%;
   top: 0;
-  right: calc(100% - 35vh);
+  right: calc(100% - 30vh);
   background: ${({ theme }) => theme.color.orange};
 `;
 
 const StyledImg = styled.img`
-  max-height: 80%;
+  max-height: 70%;
   position: absolute;
   bottom: 0;
   z-index: 1;

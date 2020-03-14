@@ -5,4 +5,5 @@ export default styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   /* color: ${({ theme }) => theme.color.white}; */
   letter-spacing: 3px;
+  text-transform: uppercase;
 `;

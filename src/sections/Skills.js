@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import H1 from "../components/atoms/H1";
 import H2 from "../components/atoms/H2";
 

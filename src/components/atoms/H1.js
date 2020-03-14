@@ -13,7 +13,6 @@ export default styled.h1`
 
   span {
     color: ${({ theme, orange }) =>
-      orange ? theme.color.white : theme.color.orange};};
+      orange ? theme.color.white : theme.color.orange}};
   }
-
 `;
