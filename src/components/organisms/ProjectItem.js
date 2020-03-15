@@ -3,7 +3,7 @@ import styled from "styled-components";
 import H2 from "../atoms/H2";
 import H3 from "../atoms/H3";
 import Paragraph from "../atoms/Paragraph";
-import Button from "../atoms/Button";
+import SmallButton from "../atoms/SmallButton";
 
 import portfolio from "../../assets/portfolio.png";
 
@@ -27,13 +27,6 @@ const SectionLeftSide = styled.div`
   flex-direction: column;
 `;
 
-const StyledButton = styled(Button)`
-  width: 100%;
-  height: 40px;
-  margin-bottom: 10px;
-  font-size: ${({ theme }) => theme.fontSize.xs};
-`;
-
 const SectionRightSide = styled.div`
   display: flex;
   flex-direction: column;
@@ -55,6 +48,7 @@ const Divider = styled.span`
 const ProjectPhoto = styled.img`
   width: 100%;
   margin-bottom: ${({ isOpen }) => isOpen && "20px"};
+  box-shadow: -5px 5px ${({ theme }) => theme.color.orange};
 `;
 
 const TechnologyWrapper = styled.ul`
@@ -83,9 +77,9 @@ const ProjectItem = () => {
         <ProjectPhoto src={portfolio} alt="portfolio.png" isOpen={isOpen} />
         {isOpen && (
           <>
-            <StyledButton>Wersja live</StyledButton>
-            <StyledButton secondary>GitHub</StyledButton>
-            <StyledButton secondary>Figma mockup</StyledButton>
+            <SmallButton>Wersja live</SmallButton>
+            <SmallButton secondary>GitHub</SmallButton>
+            <SmallButton secondary>Figma mockup</SmallButton>
           </>
         )}
       </SectionLeftSide>

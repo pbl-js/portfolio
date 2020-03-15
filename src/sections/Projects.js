@@ -3,8 +3,15 @@ import styled from "styled-components";
 import H1 from "../components/atoms/H1";
 import ProjectItem from "../components/organisms/ProjectItem";
 
+const BackgroundWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  background-color: ${({ theme }) => theme.color.greyPrimary};
+  overflow: hidden;
+`;
+
 const StyledWrapper = styled.div`
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 100%;
   max-width: 1440px;
   background-color: ${({ theme }) => theme.color.greyPrimary};
@@ -21,19 +28,21 @@ const StyledArticle = styled.article`
 
 const Projects = () => {
   return (
-    <StyledWrapper>
-      <StyledArticle>
-        <H1>
-          <span>{"<"}</span> Projekty <span>{"/>"}</span>
-        </H1>
+    <BackgroundWrapper>
+      <StyledWrapper>
+        <StyledArticle>
+          <H1>
+            <span>{"<"}</span> Projekty <span>{"/>"}</span>
+          </H1>
 
-        <ProjectItem />
+          <ProjectItem />
 
-        <ProjectItem />
+          <ProjectItem />
 
-        <ProjectItem />
-      </StyledArticle>
-    </StyledWrapper>
+          <ProjectItem />
+        </StyledArticle>
+      </StyledWrapper>
+    </BackgroundWrapper>
   );
 };
 
