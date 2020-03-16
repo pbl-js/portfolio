@@ -15,13 +15,19 @@ const StyledWrapper = styled.div`
 
 const StyledSVG = styled(Dots)`
   width: 350px;
-  height: 220px;
   color: red;
   position: absolute;
   bottom: 50px;
   right: 50px;
   .dots {
-    fill: ${({ theme }) => theme.color.greyPrimary};
+    fill: ${({ theme }) => theme.color.greySecondary};
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    /* height: 200px; */
+    width: 50%;
+    bottom: 30px;
+    right: 30px;
   }
 `;
 
@@ -30,8 +36,20 @@ const OrangeDiv = styled.div`
   width: 200vw;
   height: 100%;
   top: 0;
-  right: calc(100% - 300px);
+  right: calc(100% - 500px);
   background: ${({ theme }) => theme.color.orange};
+
+  @media ${({ theme }) => theme.device.laptopL} {
+    right: calc(100% - 280px);
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    right: calc(100% - 170px);
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    right: calc(100% - 80px);
+  }
 `;
 
 const StyledImg = styled.img`
@@ -41,6 +59,14 @@ const StyledImg = styled.img`
   bottom: 0;
   z-index: 1;
   transform: translateX(40%);
+
+  @media ${({ theme }) => theme.device.laptop} {
+    max-height: 45%;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
 `;
 
 const InnerWrapper = styled.header`
@@ -51,22 +77,33 @@ const InnerWrapper = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    right: 30px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
   margin-top: 30px;
 `;
 
 const StyledButton = styled(Button)`
-  margin-left: 30px;
+  /* margin-left: 30px; */
 `;
 
 const NameSurname = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.xxl};
   text-transform: uppercase;
+  text-align: right;
   color: ${({ theme }) => theme.color.orange};
   letter-spacing: 3px;
+
+  @media ${({ theme }) => theme.device.laptop} {
+    font-size: ${({ theme }) => theme.fontSize.xl};
+  }
 `;
 
 const JobTitle = styled.h2`
@@ -75,6 +112,10 @@ const JobTitle = styled.h2`
   letter-spacing: 2px;
   text-transform: uppercase;
   color: ${({ theme }) => theme.color.white};
+
+  @media ${({ theme }) => theme.device.laptop} {
+    font-size: ${({ theme }) => theme.fontSize.l};
+  }
 `;
 
 const Header = () => {

@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export default styled.button`
-  width: 220px;
-  height: 60px;
-  border-radius: 10px;
-  /* font-size: 24px; */
+  padding: 20px 40px;
+  /* border-radius: 10px; */
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme, secondary }) =>
     secondary ? theme.color.orange : theme.color.white};
@@ -14,4 +12,9 @@ export default styled.button`
   border: ${({ theme, secondary }) =>
     secondary ? "2px solid " + theme.color.orange : 0};
   cursor: pointer;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.s};
+    padding: 15px 30px;
+  }
 `;

@@ -41,8 +41,12 @@ const OrangeDiv = styled.div`
   width: 200vw;
   height: 100%;
   top: 0;
-  left: calc(100% - 300px);
+  left: calc(100% - 500px);
   background: ${({ theme }) => theme.color.orange};
+
+  @media ${({ theme }) => theme.device.laptopL} {
+    left: calc(100% - 300px);
+  }
 `;
 
 const StyledImg = styled.img`

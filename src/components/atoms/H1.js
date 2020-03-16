@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.xxl};
+  font-size: ${({ theme }) => theme.fontSize.xl};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ theme, orange }) =>
     orange ? theme.color.orange : theme.color.white};
