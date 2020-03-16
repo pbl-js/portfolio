@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ theme, orange }) =>
     orange ? theme.color.orange : theme.color.white};
@@ -14,5 +14,9 @@ export default styled.h1`
   span {
     color: ${({ theme, orange }) =>
       orange ? theme.color.white : theme.color.orange}};
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    font-size: ${({ theme }) => theme.fontSize.xl};
   }
 `;

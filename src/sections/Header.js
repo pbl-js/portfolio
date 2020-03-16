@@ -95,19 +95,19 @@ const StyledButton = styled(Button)`
 `;
 
 const NameSurname = styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.xxl};
+  font-size: ${({ theme }) => theme.fontSize.xxxl};
   text-transform: uppercase;
   text-align: right;
   color: ${({ theme }) => theme.color.orange};
   letter-spacing: 3px;
 
   @media ${({ theme }) => theme.device.laptop} {
-    font-size: ${({ theme }) => theme.fontSize.xl};
+    font-size: ${({ theme }) => theme.fontSize.xxl};
   }
 `;
 
 const JobTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   letter-spacing: 2px;
   text-transform: uppercase;

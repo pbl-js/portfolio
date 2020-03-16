@@ -45,7 +45,15 @@ const OrangeDiv = styled.div`
   background: ${({ theme }) => theme.color.orange};
 
   @media ${({ theme }) => theme.device.laptopL} {
-    left: calc(100% - 300px);
+    left: calc(100% - 280px);
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    left: calc(100% - 170px);
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    left: calc(100% - 80px);
   }
 `;
 
@@ -53,17 +61,30 @@ const StyledImg = styled.img`
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-height: 50%;
-  height: 40%;
+  max-height: 60%;
   left: 0;
   bottom: 0;
   z-index: 1;
+
+  @media ${({ theme }) => theme.device.laptopL} {
+    max-height: 30%;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
 `;
 
 const StyledArticle = styled.article`
   margin: 100px 0;
-  margin-left: 100px;
-  width: 40%;
+  margin-left: 50px;
+  width: 45%;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-left: 30px;
+    width: 100%;
+    max-width: calc(100% - 170px);
+  }
 `;
 
 const StyledH2 = styled(H2)`
