@@ -8,11 +8,26 @@ import { ReactLogo } from "@styled-icons/fa-brands/ReactLogo";
 import { Nodejs } from "@styled-icons/boxicons-logos/Nodejs";
 import { Adobe } from "@styled-icons/boxicons-logos/Adobe";
 
+import { ReactComponent as Wave } from "../assets/wave.svg";
+
 const StyledWrapper = styled.div`
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
+`;
+
+const WaveSVG = styled(Wave)`
+  width: 200px;
+  height: 160px;
+  color: red;
+  position: absolute;
+  top: 3%;
+  left: 0;
+  transform: translateY(-50%);
+  .wave {
+    fill: ${({ theme }) => theme.color.orange};
+  }
 `;
 
 const StyledArticle = styled.article`
@@ -64,6 +79,8 @@ const IconStyleWrapper = styled.div`
 const Skills = () => {
   return (
     <StyledWrapper>
+      <WaveSVG />
+
       <StyledArticle>
         <H1 orange center>
           <span>{"<"}</span> Umiejętności <span>{"/>"}</span>

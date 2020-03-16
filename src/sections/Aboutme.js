@@ -5,12 +5,25 @@ import workingMan from "../assets/workingMan.png";
 import H1 from "../components/atoms/H1";
 import H2 from "../components/atoms/H2";
 import Paragraph from "../components/atoms/Paragraph";
+import { ReactComponent as Dots } from "../assets/dots.svg";
 
 const BackgroundWrapper = styled.div`
   position: relative;
   width: 100%;
   background-color: ${({ theme }) => theme.color.greyPrimary};
   overflow: hidden;
+`;
+
+const DotsSVG = styled(Dots)`
+  width: 200px;
+  height: 90px;
+  color: red;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  .dots {
+    fill: ${({ theme }) => theme.color.white};
+  }
 `;
 
 const MainWrapper = styled.div`
@@ -28,17 +41,17 @@ const OrangeDiv = styled.div`
   width: 200vw;
   height: 100%;
   top: 0;
-  left: calc(100% - 35vh);
+  left: calc(100% - 300px);
   background: ${({ theme }) => theme.color.orange};
 `;
 
 const StyledImg = styled.img`
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   max-height: 50%;
-  height: 30%;
-  right: 10vh;
+  height: 40%;
+  left: 0;
   bottom: 0;
   z-index: 1;
 `;
@@ -82,7 +95,11 @@ const Aboutme = () => {
   return (
     <BackgroundWrapper>
       <MainWrapper>
-        <OrangeDiv />
+        <OrangeDiv>
+          <StyledImg src={workingMan} />
+
+          <DotsSVG />
+        </OrangeDiv>
 
         <StyledArticle>
           <H1>
@@ -122,8 +139,6 @@ const Aboutme = () => {
             <SectionBackground />
           </StyledSection>
         </StyledArticle>
-
-        <StyledImg src={workingMan} />
       </MainWrapper>
     </BackgroundWrapper>
   );

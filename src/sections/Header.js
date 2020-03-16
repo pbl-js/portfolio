@@ -3,6 +3,7 @@ import styled from "styled-components";
 import person from "../assets/person.png";
 import Button from "../components/atoms/Button";
 import Navigation from "../components/organisms/Navigation";
+import { ReactComponent as Dots } from "../assets/dots.svg";
 
 const StyledWrapper = styled.div`
   height: 100vh;
@@ -12,21 +13,34 @@ const StyledWrapper = styled.div`
   position: relative;
 `;
 
+const StyledSVG = styled(Dots)`
+  width: 350px;
+  height: 220px;
+  color: red;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  .dots {
+    fill: ${({ theme }) => theme.color.greyPrimary};
+  }
+`;
+
 const OrangeDiv = styled.div`
   position: absolute;
   width: 200vw;
   height: 100%;
   top: 0;
-  right: calc(100% - 30vh);
+  right: calc(100% - 300px);
   background: ${({ theme }) => theme.color.orange};
 `;
 
 const StyledImg = styled.img`
   max-height: 70%;
   position: absolute;
+  right: 0;
   bottom: 0;
   z-index: 1;
-  transform: scaleX(-1);
+  transform: translateX(40%);
 `;
 
 const InnerWrapper = styled.header`
@@ -67,9 +81,9 @@ const Header = () => {
   return (
     <>
       <StyledWrapper>
-        <OrangeDiv />
-        <StyledImg src={person} />
-
+        <OrangeDiv>
+          <StyledImg src={person} />
+        </OrangeDiv>
         <Navigation />
         <InnerWrapper>
           <NameSurname>paweł Miłczak</NameSurname>
@@ -79,6 +93,7 @@ const Header = () => {
             <StyledButton>Zobacz projekty</StyledButton>
           </ButtonWrapper>
         </InnerWrapper>
+        <StyledSVG />
       </StyledWrapper>
     </>
   );
