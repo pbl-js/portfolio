@@ -37,6 +37,14 @@ const SectionLeftSide = styled.div`
     grid-gap: 20px;
     margin-top: 43px;
   }
+
+  @media ${({ theme }) => theme.device.mobileL} {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+    grid-gap: 20px;
+    margin-top: 43px;
+  }
 `;
 
 const StyledH2 = styled(H2)`
@@ -56,6 +64,14 @@ const ButtonWrapper = styled.div`
   }
 `;
 
+const DescriptionButton = styled(SmallButton)`
+  display: none;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: block;
+  }
+`;
+
 const SectionRightSide = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,11 +86,15 @@ const ProjectPhoto = styled.img`
   width: 250px;
   height: 160px;
   margin-bottom: ${({ isOpen }) => isOpen && "20px"};
-  box-shadow: -5px 5px ${({ theme }) => theme.color.orange};
 
   @media ${({ theme }) => theme.device.tablet} {
     height: 100%;
-    box-shadow: none;
+  }
+
+  @media ${({ theme }) => theme.device.mobileL} {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0px;
   }
 `;
 
@@ -108,11 +128,29 @@ const ProjectItem = () => {
         <ProjectPhoto src={portfolio} alt="portfolio.png" isOpen={isOpen} />
 
         <ButtonWrapper isOpen={isOpen}>
-          <SmallButton onClick={() => console.log("elo")}>
+          <SmallButton
+            as="a"
+            href="https://www.w3schools.com/html/"
+            onClick={e => {
+              e.stopPropagation();
+            }}
+          >
             Wersja live
           </SmallButton>
-          <SmallButton secondary>GitHub</SmallButton>
-          <SmallButton secondary>Figma mockup</SmallButton>
+
+          <SmallButton
+            as="a"
+            href="https://www.w3schools.com/html/"
+            onClick={e => {
+              e.stopPropagation();
+            }}
+          >
+            GitHub
+          </SmallButton>
+
+          <DescriptionButton secondary description>
+            Opis projektu
+          </DescriptionButton>
         </ButtonWrapper>
       </SectionLeftSide>
 
