@@ -20,11 +20,40 @@ const StyledSection = styled.section`
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     cursor: pointer;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const SectionLeftSide = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 20px;
+    margin-top: 43px;
+  }
+`;
+
+const StyledH2 = styled(H2)`
+  @media ${({ theme }) => theme.device.tablet} {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: ${({ isOpen }) => (isOpen ? "grid" : "none")};
+  grid-gap: 10px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: grid;
+  }
 `;
 
 const SectionRightSide = styled.div`
@@ -37,18 +66,16 @@ const StyledParagraph = styled(Paragraph)`
   margin-bottom: 20px;
 `;
 
-const Divider = styled.span`
-  width: 100%;
-  height: 1px;
-  margin-bottom: 20px;
-  display: block;
-  background: ${({ theme }) => theme.color.greyTertiary};
-`;
-
 const ProjectPhoto = styled.img`
-  width: 100%;
+  width: 250px;
+  height: 160px;
   margin-bottom: ${({ isOpen }) => isOpen && "20px"};
   box-shadow: -5px 5px ${({ theme }) => theme.color.orange};
+
+  @media ${({ theme }) => theme.device.tablet} {
+    height: 100%;
+    box-shadow: none;
+  }
 `;
 
 const TechnologyWrapper = styled.ul`
@@ -58,6 +85,10 @@ const TechnologyWrapper = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  }
 `;
 
 const TechnologyItem = styled.li`
@@ -75,19 +106,20 @@ const ProjectItem = () => {
     <StyledSection onClick={() => setIsOpen(!isOpen)}>
       <SectionLeftSide>
         <ProjectPhoto src={portfolio} alt="portfolio.png" isOpen={isOpen} />
-        {isOpen && (
-          <>
-            <SmallButton>Wersja live</SmallButton>
-            <SmallButton secondary>GitHub</SmallButton>
-            <SmallButton secondary>Figma mockup</SmallButton>
-          </>
-        )}
+
+        <ButtonWrapper isOpen={isOpen}>
+          <SmallButton onClick={() => console.log("elo")}>
+            Wersja live
+          </SmallButton>
+          <SmallButton secondary>GitHub</SmallButton>
+          <SmallButton secondary>Figma mockup</SmallButton>
+        </ButtonWrapper>
       </SectionLeftSide>
 
       <SectionRightSide>
-        <H2>Generator CV</H2>
+        <StyledH2>Generator CV</StyledH2>
 
-        <TechnologyWrapper>
+        <TechnologyWrapper isOpen={isOpen}>
           <TechnologyItem>React</TechnologyItem>
           <TechnologyItem>styled-components</TechnologyItem>
           <TechnologyItem>react-router</TechnologyItem>

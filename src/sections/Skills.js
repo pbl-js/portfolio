@@ -33,6 +33,10 @@ const WaveSVG = styled(Wave)`
 const StyledArticle = styled.article`
   padding: 100px 50px;
   width: 100%;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    padding: 100px 30px;
+  }
 `;
 
 const SectionsWrapper = styled.div`
