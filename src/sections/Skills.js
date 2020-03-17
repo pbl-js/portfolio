@@ -43,11 +43,11 @@ const SectionsWrapper = styled.div`
   margin-top: 120px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 70px;
+  grid-gap: 50px;
 
   @media ${({ theme }) => theme.device.laptop} {
     margin-top: 60px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-gap: 30px;
   }
@@ -58,39 +58,28 @@ const StyledSection = styled.section`
   z-index: 1;
   padding: 40px 30px;
   background-color: ${({ theme, primary }) =>
-    primary ? theme.color.greySecondary : theme.color.greyPrimary};
-  transform: ${({ primary }) => (primary ? "scale(1.12)" : "none")};
+    primary ? theme.color.orange : theme.color.greySecondary};
   color: ${({ theme, primary }) =>
     primary ? theme.color.whitey : theme.color.greyTertiary};
-  box-shadow: -7px 7px 0
-    ${({ theme, primary }) => (primary ? theme.color.orange : "transparent")};
-
-  @media ${({ theme }) => theme.device.laptop} {
-    ${({ primary }) =>
-      primary &&
-      css`
-        box-shadow: none;
-        grid-area: 1/1/2/3;
-        transform: scale(1);
-      `}
-  }
+  ${({ theme, primary }) => (primary ? theme.color.orange : "transparent")};
+  border-left: 5px solid
+    ${({ theme, primary }) => (primary ? "transparent" : theme.color.orange)};
 `;
 
 const StyledUl = styled.ul`
   margin-top: 20px;
   margin-left: 20px;
-  line-height: 250%;
+  line-height: 230%;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   display: grid;
 
   @media ${({ theme }) => theme.device.laptop} {
-    ${({ primary }) =>
-      primary &&
-      css`
-        /* grid-template-rows: auto auto auto auto; */
-        grid-template-columns: auto auto;
-      `}
+    grid-template-columns: auto auto;
+  }
+
+  @media ${({ theme }) => theme.device.mobileL} {
+    grid-template-columns: auto;
   }
 `;
 
@@ -117,26 +106,6 @@ const Skills = () => {
         </H1>
 
         <SectionsWrapper>
-          <StyledSection>
-            <SectionHeaderWrapper>
-              <IconStyleWrapper>
-                <Nodejs />
-              </IconStyleWrapper>
-              <H2>Backend</H2>
-            </SectionHeaderWrapper>
-
-            <StyledUl>
-              <li>React | HOOKS</li>
-              <li>HTML 5</li>
-              <li>JavaScript</li>
-              <li>CSS | SASS | BEM</li>
-              <li>styled-components</li>
-              <li>Redux | redux-thunk</li>
-              <li>React router</li>
-              <li>Axios</li>
-            </StyledUl>
-          </StyledSection>
-
           <StyledSection primary>
             <SectionHeaderWrapper>
               <IconStyleWrapper>
@@ -147,14 +116,27 @@ const Skills = () => {
 
             <StyledUl primary>
               <li>React | HOOKS</li>
-              <li>HTML 5</li>
-              <li>JavaScript</li>
               <li>CSS | SASS | BEM</li>
               <li>styled-components</li>
               <li>Redux | redux-thunk</li>
               <li>React router</li>
               <li>Axios</li>
-              <li>styled-components</li>
+            </StyledUl>
+          </StyledSection>
+
+          <StyledSection>
+            <SectionHeaderWrapper>
+              <IconStyleWrapper>
+                <Nodejs />
+              </IconStyleWrapper>
+              <H2>Backend</H2>
+            </SectionHeaderWrapper>
+
+            <StyledUl>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>MongoDB</li>
+              <li>Firebase</li>
             </StyledUl>
           </StyledSection>
 
@@ -163,18 +145,14 @@ const Skills = () => {
               <IconStyleWrapper>
                 <Adobe />
               </IconStyleWrapper>
-              <H2>Frontend</H2>
+              <H2>Design</H2>
             </SectionHeaderWrapper>
 
             <StyledUl>
-              <li>React | HOOKS</li>
-              <li>HTML 5</li>
-              <li>JavaScript</li>
-              <li>CSS | SASS | BEM</li>
-              <li>styled-components</li>
-              <li>Redux | redux-thunk</li>
-              <li>React router</li>
-              <li>Axios</li>
+              <li>Figma</li>
+              <li>Photoshop</li>
+              <li>AfterEffects | animacja</li>
+              <li>Blender | 3D</li>
             </StyledUl>
           </StyledSection>
         </SectionsWrapper>
