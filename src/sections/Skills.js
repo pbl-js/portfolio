@@ -31,16 +31,15 @@ const WaveSVG = styled(Wave)`
 `;
 
 const StyledArticle = styled.article`
-  padding: 100px 50px;
+  padding: 150px 50px;
   width: 100%;
 
   @media ${({ theme }) => theme.device.tablet} {
-    padding: 100px 30px;
+    padding: 150px 30px;
   }
 `;
 
 const SectionsWrapper = styled.div`
-  margin-top: 120px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px;
@@ -64,6 +63,11 @@ const StyledSection = styled.section`
   ${({ theme, primary }) => (primary ? theme.color.orange : "transparent")};
   border-left: 5px solid
     ${({ theme, primary }) => (primary ? "transparent" : theme.color.orange)};
+
+  :hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+  }
 `;
 
 const StyledUl = styled.ul`
@@ -95,10 +99,10 @@ const IconStyleWrapper = styled.div`
   }
 `;
 
-const Skills = () => {
+const Skills = ({ forwardedRef }) => {
   return (
-    <StyledWrapper>
-      <WaveSVG />
+    <StyledWrapper ref={forwardedRef}>
+      {/* <WaveSVG /> */}
 
       <StyledArticle>
         <H1 orange center>

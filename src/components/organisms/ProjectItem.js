@@ -119,7 +119,7 @@ const TechnologyItem = styled.li`
   font-size: ${({ theme }) => theme.fontSize.xs};
 `;
 
-const ProjectItem = () => {
+const ProjectItem = ({ title, technologies, description }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -139,6 +139,7 @@ const ProjectItem = () => {
           </SmallButton>
 
           <SmallButton
+            secondary
             as="a"
             href="https://www.w3schools.com/html/"
             onClick={e => {
@@ -155,46 +156,21 @@ const ProjectItem = () => {
       </SectionLeftSide>
 
       <SectionRightSide>
-        <StyledH2>Generator CV</StyledH2>
+        <StyledH2>{title}</StyledH2>
 
         <TechnologyWrapper isOpen={isOpen}>
-          <TechnologyItem>React</TechnologyItem>
-          <TechnologyItem>styled-components</TechnologyItem>
-          <TechnologyItem>react-router</TechnologyItem>
-          <TechnologyItem>express.js</TechnologyItem>
-          <TechnologyItem>MongoDB</TechnologyItem>
+          {technologies.map(item => (
+            <TechnologyItem>{item}</TechnologyItem>
+          ))}
         </TechnologyWrapper>
 
-        {isOpen && (
-          <>
-            <H3>Założenia projektu</H3>
-            <StyledParagraph>
-              W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-              program jest w stanie wykonać pracę dziesiątek a nawet setek
-              ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-              dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-              się programowania...
-            </StyledParagraph>
-
-            <H3>Użyte technologie</H3>
-            <StyledParagraph>
-              W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-              program jest w stanie wykonać pracę dziesiątek a nawet setek
-              ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-              dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-              się programowania...
-            </StyledParagraph>
-
-            <H3>Napotkane problemy</H3>
-            <StyledParagraph>
-              W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-              program jest w stanie wykonać pracę dziesiątek a nawet setek
-              ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-              dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-              się programowania...
-            </StyledParagraph>
-          </>
-        )}
+        {isOpen &&
+          description.map(({ title, body }) => (
+            <>
+              <H3>{title}</H3>
+              <StyledParagraph>{body}</StyledParagraph>
+            </>
+          ))}
       </SectionRightSide>
     </StyledSection>
   );

@@ -8,10 +8,10 @@ const BackgroundWrapper = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.color.greyPrimary};
   overflow: hidden;
-  padding: 100px 50px;
+  padding: 150px 50px;
 
   @media ${({ theme }) => theme.device.tablet} {
-    padding: 100px 30px;
+    padding: 150px 30px;
   }
 `;
 
@@ -33,19 +33,63 @@ const StyledArticle = styled.article`
   }
 `;
 
-const Projects = () => {
+const projectItems = [
+  {
+    title: "generator cv",
+    technologies: [
+      "react",
+      "styled-components",
+      "react-router",
+      "framer-motion",
+      "axios",
+      "firebase",
+      "express.js",
+      "MongoDB"
+    ],
+    description: [
+      {
+        title: "Założenia projektu",
+        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+        program jest w stanie wykonać pracę dziesiątek a nawet setek
+        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+        się programowania...`
+      },
+      {
+        title: "Użyte technologie",
+        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+        program jest w stanie wykonać pracę dziesiątek a nawet setek
+        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+        się programowania...`
+      },
+      {
+        title: "Napotkane problemy",
+        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+        program jest w stanie wykonać pracę dziesiątek a nawet setek
+        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+        się programowania...`
+      }
+    ]
+  }
+];
+
+const Projects = ({ forwardedRef }) => {
   return (
-    <BackgroundWrapper>
+    <BackgroundWrapper ref={forwardedRef}>
       <StyledWrapper>
         <H1>
           <span>{"<"}</span> Projekty <span>{"/>"}</span>
         </H1>
         <StyledArticle>
-          <ProjectItem />
-
-          <ProjectItem />
-
-          <ProjectItem />
+          {projectItems.map(({ title, technologies, description }) => (
+            <ProjectItem
+              title={title}
+              technologies={technologies}
+              description={description}
+            />
+          ))}
         </StyledArticle>
       </StyledWrapper>
     </BackgroundWrapper>

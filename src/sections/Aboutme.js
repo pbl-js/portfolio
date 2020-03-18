@@ -55,6 +55,10 @@ const OrangeDiv = styled.div`
   @media ${({ theme }) => theme.device.tablet} {
     left: calc(100% - 80px);
   }
+
+  @media ${({ theme }) => theme.device.mobileL} {
+    left: calc(100% - 40px);
+  }
 `;
 
 const StyledImg = styled.img`
@@ -76,14 +80,25 @@ const StyledImg = styled.img`
 `;
 
 const StyledArticle = styled.article`
-  margin: 100px 0;
-  margin-left: 50px;
-  width: 45%;
+  padding: 150px 50px;
+  width: 60%;
+
+  @media ${({ theme }) => theme.device.laptopL} {
+    max-width: calc(100% - 280px);
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    max-width: calc(100% - 170px);
+  }
 
   @media ${({ theme }) => theme.device.tablet} {
-    margin-left: 30px;
+    padding: 100px 30px;
     width: 100%;
-    max-width: calc(100% - 170px);
+    max-width: calc(100% - 80px);
+  }
+
+  @media ${({ theme }) => theme.device.mobileL} {
+    max-width: calc(100% - 40px);
   }
 `;
 
@@ -108,22 +123,27 @@ const SectionBackground = styled.span`
   right: 0;
   z-index: 0;
   transform: translateX(30px);
+
+  @media ${({ theme }) => theme.device.tablet} {
+    transform: translateX(0px);
+  }
 `;
 
 const InnerSection = styled.div`
   padding: 30px 0;
   position: relative;
+  margin-right: 30px;
   z-index: 1;
 `;
 
-const Aboutme = () => {
+const Aboutme = ({ forwardedRef }) => {
   return (
-    <BackgroundWrapper>
+    <BackgroundWrapper ref={forwardedRef}>
       <MainWrapper>
         <OrangeDiv>
           <StyledImg src={workingMan} />
 
-          <DotsSVG />
+          {/* <DotsSVG /> */}
         </OrangeDiv>
 
         <StyledArticle>

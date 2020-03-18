@@ -14,7 +14,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledSVG = styled(Dots)`
-  width: 350px;
+  max-width: 350px;
   color: red;
   position: absolute;
   bottom: 50px;
@@ -24,8 +24,6 @@ const StyledSVG = styled(Dots)`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    /* height: 200px; */
-    width: 50%;
     bottom: 30px;
     right: 30px;
   }
@@ -50,6 +48,10 @@ const OrangeDiv = styled.div`
   @media ${({ theme }) => theme.device.tablet} {
     right: calc(100% - 80px);
   }
+
+  @media ${({ theme }) => theme.device.mobileL} {
+    right: calc(100% - 40px);
+  }
 `;
 
 const StyledImg = styled.img`
@@ -60,8 +62,12 @@ const StyledImg = styled.img`
   z-index: 1;
   transform: translateX(40%);
 
+  @media ${({ theme }) => theme.device.laptopL} {
+    max-height: 65%;
+  }
+
   @media ${({ theme }) => theme.device.laptop} {
-    max-height: 45%;
+    max-height: 40%;
   }
 
   @media ${({ theme }) => theme.device.tablet} {
@@ -69,18 +75,37 @@ const StyledImg = styled.img`
   }
 `;
 
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: calc(100% - 500px);
+  height: 100%;
+  margin-left: 500px;
+  padding: 50px;
+
+  @media ${({ theme }) => theme.device.laptopL} {
+    width: calc(100% - 280px);
+    margin-left: 280px;
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    width: calc(100% - 170px);
+    margin-left: 170px;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+    padding: 30px;
+  }
+`;
+
 const InnerWrapper = styled.header`
-  position: absolute;
-  right: 50px;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    right: 30px;
-  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -88,6 +113,10 @@ const ButtonWrapper = styled.div`
   grid-template-columns: auto auto;
   grid-gap: 20px;
   margin-top: 30px;
+
+  @media ${({ theme }) => theme.device.mobileM} {
+    grid-template-columns: auto;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -111,30 +140,36 @@ const JobTitle = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-align: right;
   color: ${({ theme }) => theme.color.white};
+  margin-top: 10px;
 
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${({ theme }) => theme.fontSize.l};
   }
 `;
 
-const Header = () => {
+const Header = ({ executeScroll, refs }) => {
   return (
     <>
       <StyledWrapper>
         <OrangeDiv>
           <StyledImg src={person} />
         </OrangeDiv>
-        <Navigation />
-        <InnerWrapper>
-          <NameSurname>paweł Miłczak</NameSurname>
-          <JobTitle>frontend developer</JobTitle>
-          <ButtonWrapper>
-            <StyledButton secondary>Pobierz CV</StyledButton>
-            <StyledButton>Zobacz projekty</StyledButton>
-          </ButtonWrapper>
-        </InnerWrapper>
-        <StyledSVG />
+        <Navigation refs={refs} executeScroll={executeScroll} />
+        <Container>
+          <InnerWrapper>
+            <NameSurname>paweł Miłczak</NameSurname>
+            <JobTitle>frontend developer</JobTitle>
+            <ButtonWrapper>
+              <StyledButton secondary>Pobierz CV</StyledButton>
+              <StyledButton onClick={() => executeScroll(refs.projects)}>
+                Zobacz projekty
+              </StyledButton>
+            </ButtonWrapper>
+          </InnerWrapper>
+          {/* <StyledSVG /> */}
+        </Container>
       </StyledWrapper>
     </>
   );

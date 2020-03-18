@@ -9,8 +9,12 @@ const StyledWrapper = styled.div`
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 100px;
+  padding: 150px 50px;
   overflow: hidden;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    padding: 150px 30px;
+  }
 `;
 
 const SVGWrapper = styled.div`
@@ -72,18 +76,18 @@ const StyledButton = styled(SmallButton)`
   width: 100px;
 `;
 
-const Contact = () => {
+const Contact = ({ forwardedRef }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   return (
-    <StyledWrapper>
+    <StyledWrapper ref={forwardedRef}>
       <H1 center orange>
         <span>{"<"}</span> Kontakt <span>{"/>"}</span>
       </H1>
 
       <SVGWrapper>
-        <WaveSVG />
+        {/* <WaveSVG /> */}
 
         <FormWrapper>
           <StyledInput type="email" placeholder="Twój email" />
