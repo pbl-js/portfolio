@@ -18,6 +18,7 @@ const StyledSVG = styled(Dots)`
   color: red;
   position: absolute;
   bottom: 50px;
+
   right: 50px;
   .dots {
     fill: ${({ theme }) => theme.color.greySecondary};
