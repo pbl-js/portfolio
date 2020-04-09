@@ -10,6 +10,7 @@ export default styled.h1`
   text-transform: uppercase;
   text-align: ${({ center }) => (center ? "center" : "left")};
   margin-bottom: 60px;
+  margin-bottom: 60px;
 
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${({ theme }) => theme.fontSize.xl};
